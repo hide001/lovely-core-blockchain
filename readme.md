@@ -1,11 +1,11 @@
 
-# Bloom Genesis Blockchain Node
+# Lovely Chain Blockchain Node
 
-This project aims to provide installation, running, and maintenance capabilities of **Bloom Genesis validator node** for potential and existing Bloom Genesis Blockchain backers. The consensus structure of this chain is delegated proof of stake "DPos" and is governed by the symbiosis of Bloom Genesis's implementation of go-ethereum and our system contracts [https://github.com/Bloom-Genesis/System-Contracts]. This repository has multiple release candidates inline so we recommend checking for updates for better functions and stability.
+This project aims to provide installation, running, and maintenance capabilities of **Lovely Chain validator node** for potential and existing Lovely Chain Blockchain backers. The consensus structure of this chain is delegated proof of stake "DPos" and is governed by the symbiosis of Lovely Chain's implementation of go-ethereum and our system contracts [https://github.com/Bloom-Genesis/System-Contracts]. This repository has multiple release candidates inline so we recommend checking for updates for better functions and stability.
 
 
 ## Acknowledgements
-Bloom Genesis blockchain node inherits its core components from heco-chain project by stars-lab which itself is based on geth by the Ethereum foundation.
+Lovely Chain blockchain node inherits its core components from heco-chain project by stars-lab which itself is based on geth by the Ethereum foundation.
 
  - [Go ethereum](https://github.com/ethereum/go-ethereum)
  - [heco-chain](https://github.com/stars-labs/heco-chain)
@@ -20,12 +20,12 @@ We acknowledge and actively contribute to decentralization causes and derivative
 
 **Persistent Storage:** 25GB minimum, 100GB high-speed SSD recommended
 
-**Note regarding use of GPUs -** GPUs are primarily used in POW consensus chains. Being a DPos Bloom Genesis chain has not only more TPS and fast block production but also doesn't need a GPU altogether for its purpose.
+**Note regarding use of GPUs -** GPUs are primarily used in POW consensus chains. Being a DPos Lovely Chain chain has not only more TPS and fast block production but also doesn't need a GPU altogether for its purpose.
 
 
 
 ## How to become a validator
-To back the Bloom Genesis blockchain you can become a validator. Full flow to become a validator, you must:
+To back the Lovely Chain blockchain you can become a validator. Full flow to become a validator, you must:
 * Install this package **([See Installation](#installation))**
 * Download your newly created validator wallet from your server and import it into your metamask or preferred wallet. Fund this account with the appropriate MNZ tokens needed to become a validator. Example command to download the wallet on your local PC. Only works for UNIX-based OSes or on any environment that can run the OpenSSH package:
 ```bash
@@ -35,7 +35,7 @@ To back the Bloom Genesis blockchain you can become a validator. Full flow to be
 * On your server, start the node that you just installed **([See Usage/Example](#usageexamples))**
 * Once the node is started and confirmation is seen on your terminal, open the interactive console by attaching tmux session **([See Usage/Example](#usageexamples))**
 * Once inside the interactive console, you'll see "IMPORTED TRANSACTION OBJECTS" and "age=<some period like 6d5hr or 5mon 3weeks>". You need to wait until the "unauthorized validator" warning starts to pop up on the console. 
-* Once "unauthorized validators" warning shows up, go to https://staking.bloomgenesis.com/ and click "Become a validator". Fill in all the details in the form, in the "Fee address" field enter the validator wallet address that you imported into your metamask. Proceed further
+* Once "unauthorized validators" warning shows up, go to https://staking.lovely.network/ and click "Become a validator". Fill in all the details in the form, in the "Fee address" field enter the validator wallet address that you imported into your metamask. Proceed further
 * Once the last step is done, you'll see a "🔨 mined potential block" message on the interactive console. You'll also see your validator wallet as a validator on the staking page and on explorer. You should also detach from the console after the whole process is done **([See Usage/Example](#usageexamples))**
 ## Installation
 
@@ -46,7 +46,7 @@ To back the Bloom Genesis blockchain you can become a validator. Full flow to be
 If failed you may end up losing your stake in the blockchain and your staked coins, if any. You'll be jailed at once with no return point by the blockchain if found down/dead. You'll be responsible for chain data corruption on your node, frying up your motherboard, or damaging yourself and your surroundings. 
 
 
-To install the Bloom Genesis validator node in ubuntu linux
+To install the Lovely Chain validator node in ubuntu linux
 ```bash
   sudo -i
   apt update && apt upgrade
@@ -58,7 +58,7 @@ Skip the above commands if you have already updated the system and installed the
 Connect again to your server after reboot
 ```bash
   sudo -i
-  git clone https://github.com/Bloom-Genesis/Core-Blockchain.git
+  git clone https://github.com/Lovely-Chain/core-blockchain.git
   cd core-blockchain
   ./node-setup --validator 1
 ```
