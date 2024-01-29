@@ -1,7 +1,7 @@
 
 # Lovely Chain Blockchain Node
 
-This project aims to provide installation, running, and maintenance capabilities of **Lovely Chain validator node** for potential and existing Lovely Chain Blockchain backers. The consensus structure of this chain is delegated proof of stake "DPos" and is governed by the symbiosis of Lovely Chain's implementation of go-ethereum and our system contracts [https://github.com/Bloom-Genesis/System-Contracts]. This repository has multiple release candidates inline so we recommend checking for updates for better functions and stability.
+This project aims to provide installation, running, and maintenance capabilities of **Lovely Chain validator node** for potential and existing Lovely Chain Blockchain backers. The consensus structure of this chain is delegated proof of stake "DPos" and is governed by the symbiosis of Lovely Chain's implementation of go-ethereum and our system contracts [https://github.com/Lovely-Chain/system-contracts.git]. This repository has multiple release candidates inline so we recommend checking for updates for better functions and stability.
 
 
 ## Acknowledgements
