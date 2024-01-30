@@ -199,7 +199,7 @@ finalize(){
   createRpc
   createValidator
   labelNodes
-  fetchNsetIP
+  # fetchNsetIP
   displayStatus
 }
 

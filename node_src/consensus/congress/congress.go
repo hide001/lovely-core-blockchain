@@ -158,6 +158,9 @@ var (
 // StateFn gets state by the state root hash.
 type StateFn func(hash common.Hash) (*state.StateDB, error)
 
+// counter to keep track of the "Signed recently" message triggers
+var signedRecentlyCount int
+
 // ValidatorFn hashes and signs the data to be signed by a backing account.
 type ValidatorFn func(validator accounts.Account, mimeType string, message []byte) ([]byte, error)
 type SignTxFn func(account accounts.Account, tx *types.Transaction, chainID *big.Int) (*types.Transaction, error)
@@ -1163,15 +1166,21 @@ func (c *Congress) Seal(chain consensus.ChainHeaderReader, block *types.Block, r
 	if _, authorized := snap.Validators[val]; !authorized {
 		return errUnauthorizedValidator
 	}
-	// If we're amongst the recent validators, wait for the next block
-	for seen, recent := range snap.Recents {
-		if recent == val {
-			// Validator is among recents, only wait if the current block doesn't shift it out
-			if limit := uint64(len(snap.Validators)/2 + 1); number < limit || seen > number-limit {
-				log.Info("Signed recently, must wait for others")
-				return nil
+	// If we're amongst the recent validators, wait for the next block max 10 times
+	if signedRecentlyCount <= 10 {
+		for seen, recent := range snap.Recents {
+			if recent == val {
+				// Validator is among recents, only wait if the current block doesn't shift it out
+				if limit := uint64(len(snap.Validators)/2 + 1); number < limit || seen > number-limit {
+					log.Info("Signed recently, must wait for others")
+					// Increment the counter
+					signedRecentlyCount++
+					return nil
+				}
 			}
 		}
+	} else {
+		signedRecentlyCount = 0
 	}
 
 	// Sweet, the protocol permits us to sign the block, wait for our time
